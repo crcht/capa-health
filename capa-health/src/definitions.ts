@@ -5,29 +5,19 @@ declare module "@capacitor/core" {
   }
 }
 
-export interface CapaHealthPluginIsAvailableResult  {
-  /** true if Face ID or Touch ID is available */
-  value: boolean;
-}
-
-export interface CapaHealthPluginAuthOptions {
-  /** String to display authentication reason */
-  reason?: string;
-}
-
 export interface CapaHealthPlugin {
   /**
    * check if Face ID or Touch ID is available
    * @returns  {Promise}
-   * @resolve {value: boolean}
+   * @resolve any
    * @rejects PluginResultError
    */
-  isAvailable(): Promise<CapaHealthPluginIsAvailableResult>;
+  getDistance(): Promise<any>;
   /**
    * Displays the authentication screen
    * @returns  {Promise}
-   * @resolve void
+   * @resolve any
    * @rejects PluginResultError
    */
-  auth(options?: CapaHealthPluginAuthOptions): Promise<void>;
+  authorize(): Promise<any>;
 }
